@@ -7,8 +7,8 @@ pipeline {
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
         // >>> CHANGE THESE TWO <<<
-        GIT_REPO   = 'https://github.com/Jhoode/starbuck.git'
-        IMAGE      = 'jhoode/starbucks:latest'
+        GIT_REPO   = 'https://github.com/Frankio1/starbucks.git'
+        IMAGE      = 'Frankio1/starbucks:latest'
     }
     stages {
         stage('Clean workspace') { steps { cleanWs() } }
@@ -92,7 +92,7 @@ pipeline {
             emailext attachLog: true,
                 subject: "'${currentBuild.result}'",
                 body: "Project: ${env.JOB_NAME}<br/>Build: ${env.BUILD_NUMBER}<br/>URL: ${env.BUILD_URL}",
-                to: 'ojugo.jude@gmail.com',
+                to: 'frankio@gmail.com',
                 mimeType: 'text/html',
                 attachmentsPattern: 'trivy.txt'
         }
