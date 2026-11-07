@@ -69,7 +69,7 @@ pipeline {
                 // a Scout problem marks the build UNSTABLE instead of blocking the deploy
                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                     script {
-                        withDockerRegistry(credentialsId: 'docker') {   // use the server's Docker, not the outdated Jenkins-downloaded one
+                        withDockerRegistry(credentialsId: 'docker-credentials') {   // use the server's Docker, not the outdated Jenkins-downloaded one
                             sh "docker-scout quickview ${IMAGE}"
                             sh "docker-scout cves ${IMAGE}"
                             sh "docker-scout recommendations ${IMAGE}"
