@@ -56,7 +56,7 @@ pipeline {
         stage('Tag & Push to DockerHub') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker') {
+                    withDockerRegistry(credentialsId: 'docker-credentials') {
                         sh "docker tag starbucks ${IMAGE}"
                         sh "docker push ${IMAGE}"
                     }
