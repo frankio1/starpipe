@@ -4,6 +4,9 @@ pipeline {
         jdk 'jdk17'
         nodejs 'node16'
     }
+    triggers {
+        githubPush()
+    }
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
         // >>> CHANGE THESE TWO <<<
