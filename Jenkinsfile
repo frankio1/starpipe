@@ -10,8 +10,8 @@ pipeline {
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
         // >>> CHANGE THESE TWO <<<
-        GIT_REPO   = 'https://github.com/frankio1/starbucks.git'
-        IMAGE      = 'franksman/starpipe:latest'
+        GIT_REPO   = 'https://github.com/frankio1/starpipe.git'
+        IMAGE      = 'franksman/starbucks:latest'
     }
     stages {
         stage('Clean workspace') { steps { cleanWs() } }
