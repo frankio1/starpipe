@@ -44,7 +44,7 @@ pipeline {
                 // needs a free NVD API key stored as Secret text 'nvd-api-key';
                 // any problem here marks the build UNSTABLE instead of stopping it
                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                    withCredentials([string(credentialsId: 'nvd-api-key', variable: 'NVD_API_KEY')]) {
+                    withCredentials([string(credentialsId: 'NVD_API_KEY', variable: 'NVD_API_KEY')]) {
                         dependencyCheck additionalArguments: "--scan ./ --disableYarnAudit --disableNodeAudit --nvdApiKey ${NVD_API_KEY}", odcInstallation: 'DP-Check'
                     }
                     dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
